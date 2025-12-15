@@ -1,5 +1,13 @@
-FROM nginx:latest
+FROM node:18
 
-COPY index.html /usr/share/nginx/html/index.html
+WORKDIR /
 
-EXPOSE 80
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["node", "server.js"]
