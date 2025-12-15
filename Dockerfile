@@ -1,5 +1,5 @@
-FROM ubuntu:latest
+FROM nginx:latest
 
-ENV mensagem "Alo mundo"
+COPY index.html /usr/share/nginx/html/index.html
 
-CMD echo ${mensagem}
+EXPOSE 80
